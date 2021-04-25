@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/Pichu.ico</file>
+        <file>res/motion.png</file>
+        <file>res/test.png</file>
+        <file>res/vision.png</file>
+        <file>res/ip.png</file>
+    </qresource>
+</RCC>
