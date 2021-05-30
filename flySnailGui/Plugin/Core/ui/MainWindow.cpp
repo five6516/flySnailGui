@@ -114,7 +114,7 @@ void MainWindow::addToolUI()
     /* 工具栏 */
     m_pQtMaterialAppBar = new QtMaterialAppBar();
     m_pQtMaterialAppBar->setBackgroundColor(QColor("#4dd0e1"));
-    m_pQtMaterialAppBar->setMaximumHeight(35);
+    //m_pQtMaterialAppBar->setMaximumHeight(35);
 
     QHBoxLayout *pQHBoxLayout_AppMenu = new QHBoxLayout();
     pQHBoxLayout_AppMenu->addWidget(treeAct);
@@ -331,15 +331,15 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 
         //根据按下处的位置判断是否是移动控件还是拉伸控件
         if (m_bMoveEnable && pressed) {
-            if(m_isMax)
-            {
-                setGeometry(point.x()-normalRect.width()/2,point.y(),normalRect.width(),normalRect.height());
-                //pressed = false;
-                m_pressPoint = m_currentPoint-QPoint(-normalRect.width()/2,0);
-                maxAct->setIcon(QtMaterialTheme::icon("navigation","fullscreen"));
-                m_isMax = false;
-            }
-            else
+//            if(m_isMax)
+//            {
+//                setGeometry(point.x()-normalRect.width()/2,point.y(),normalRect.width(),normalRect.height());
+//                //pressed = false;
+//                m_pressPoint = m_currentPoint-QPoint(-normalRect.width()/2,0);
+//                maxAct->setIcon(QtMaterialTheme::icon("navigation","fullscreen"));
+//                m_isMax = false;
+//            }
+//            else
             {
                 this->move(widget->x() + offsetX, widget->y() + offsetY);
             }

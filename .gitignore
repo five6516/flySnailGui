@@ -36,3 +36,7 @@
 
 # QT
 *.pro.user
+
+#out
+Bin/
+build*/
