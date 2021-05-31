@@ -6,6 +6,7 @@
 #include <QStackedWidget>
 #include <QGridLayout>
 #include "Global.h"
+#include "Settings.h"
 
 WidgetsWindow::WidgetsWindow(CPluginManage* pCPluginManage,QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +18,8 @@ WidgetsWindow::WidgetsWindow(CPluginManage* pCPluginManage,QWidget *parent) :
     addWidgetsUI();
 
     QGridLayout* pQGridLayout = new QGridLayout();
+    pQGridLayout->setMargin(0);
+    pQGridLayout->setSpacing(0);
     pQGridLayout->addWidget(m_pQStackedWidget);
 
     QWidget* center = new QWidget();
@@ -46,15 +49,17 @@ void WidgetsWindow::addMenuUI()
         }
     });
 
-    m_pDockMenu = new QDockWidget(this);
-    m_pDockMenu->setAllowedAreas(Qt::AllDockWidgetAreas);
-    m_pDockMenu->setWidget(m_pQtMaterialTabs);
-    m_pDockMenu->setFeatures(QDockWidget::NoDockWidgetFeatures);
-    addDockWidget(Qt::TopDockWidgetArea,m_pDockMenu);
+    m_pDockTab = new QDockWidget(this);
+    if(!g_ShowTab)
+        m_pDockTab->setVisible(false);
+    m_pDockTab->setAllowedAreas(Qt::AllDockWidgetAreas);
+    m_pDockTab->setWidget(m_pQtMaterialTabs);
+    m_pDockTab->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    addDockWidget(Qt::TopDockWidgetArea,m_pDockTab);
 
-    QWidget* lTitleBar = m_pDockMenu->titleBarWidget();
+    QWidget* lTitleBar = m_pDockTab->titleBarWidget();
     QWidget* lEmptyWidget = new QWidget();
-    m_pDockMenu->setTitleBarWidget(lEmptyWidget);
+    m_pDockTab->setTitleBarWidget(lEmptyWidget);
     delete lTitleBar;
 }
 
@@ -69,6 +74,10 @@ void WidgetsWindow::addLogUI()
     connect(m_pQListWidget,SIGNAL(itemDoubleClicked(QListWidgetItem*)),this,SLOT(ItemDoubleClick(QListWidgetItem*)));
 
     m_pDockLog = new QDockWidget(this);
+    if(!g_ShowLogWindow)
+    {
+        m_pDockLog->setVisible(false);
+    }
     m_pDockLog->setAllowedAreas(Qt::AllDockWidgetAreas);
     m_pDockLog->setWidget(m_pQListWidget);
     m_pDockLog->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
@@ -92,6 +101,8 @@ void WidgetsWindow::addTreeListUI()
     connect(m_pQTreeWidget,SIGNAL(itemPressed(QTreeWidgetItem *,int)),this,SLOT(treeItemPressed(QTreeWidgetItem*,int)));
 
     m_pDockTreeList = new QDockWidget(this);
+    if(!g_ShowTreeList)
+        m_pDockTreeList->setVisible(false);
     m_pDockTreeList->setAllowedAreas(Qt::AllDockWidgetAreas);
     m_pDockTreeList->setWidget(m_pQTreeWidget);
     m_pDockTreeList->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);

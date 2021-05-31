@@ -38,8 +38,7 @@ private:
     void addTreeListUI();
 
     QDockWidget * m_pDockLog;
-    QDockWidget * m_pDockMenu;
-    QDockWidget * m_pDockWidgets;
+    QDockWidget * m_pDockTab;
     QDockWidget * m_pDockTreeList;
 
     QListWidget* m_pQListWidget;//Log窗口

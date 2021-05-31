@@ -30,6 +30,7 @@ SOURCES += \
 HEADERS += \
     CorePluginExport.h \
     ui/MainWindow.h \
+    ui/Settings.h \
     ui/WidgetsWindow.h
 
 # Default rules for deployment.

@@ -57,7 +57,7 @@ framelessDialog::framelessDialog(QWidget *parent):QDialog(parent)
 
     /* 工具栏 */
     m_pQtMaterialAppBar = new QtMaterialAppBar();
-    m_pQtMaterialAppBar->setMaximumHeight(35);
+    //m_pQtMaterialAppBar->setMaximumHeight(35);
     m_pQtMaterialAppBar->appBarLayout()->setSpacing(10);
     m_pQHBoxLayoutAppMenu = new QHBoxLayout();
     m_pQtMaterialAppBar->appBarLayout()->addLayout(m_pQHBoxLayoutAppMenu);
