@@ -19,7 +19,7 @@ QString strColor;
 
 void loadConfig()
 {
-    QSettings ini(qApp->applicationDirPath()+"/config/ui.ini", QSettings::Format::IniFormat);
+    QSettings ini(qApp->applicationDirPath()+"/Config/ui.ini", QSettings::Format::IniFormat);
     strQSS = ini.value("theme/QSS","qss.css").toString();
     strStyleFactory = ini.value("theme/StyleFactory","Fusion").toString();
     strFont = ini.value("theme/QSS","Font").toString();

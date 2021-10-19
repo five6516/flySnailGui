@@ -89,7 +89,6 @@ contains(DEFINES, Tool_Plugin|Lib_PLUGIN_LIBRARY|Core_Plugin){
     DESTDIR = $$OUT_DIR/$${PlatForm}/$${ARCHITECTURE}/$${DebugOrRelease}
     #message("Main")
 }
-
 #message($$OUT_DIR)
 #message($$DESTDIR)
 }

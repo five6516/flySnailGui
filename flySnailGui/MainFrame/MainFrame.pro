@@ -36,3 +36,9 @@ RC_ICONS = favicon.ico
 RESOURCES += \
     res.qrc
 
+# copy config
+CONFIG += file_copies
+components_copy.files += $$PWD/../Config
+components_copy.path += $$OUT_DIR/$${PlatForm}/$${ARCHITECTURE}/$${DebugOrRelease}
+COPIES += components_copy
+
