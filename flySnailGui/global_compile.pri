@@ -47,14 +47,14 @@ contains(DEFINES, Lib_PLUGIN_LIBRARY){
 
     #message("Components")
 
-#CONFIG(debug, debug|release){#用于调试信息
-#    CONFIG += file_copies
-#    components_copy.files += $$PWD/lib/$${ARCHITECTURE}/$${DebugOrRelease}
-#    components_copy.path += $$OUT_DIR/$${PlatForm}/$${ARCHITECTURE}
+CONFIG(debug, debug|release){#用于调试信息
+    CONFIG += file_copies
+    components_copy.files += $$PWD/lib/$${ARCHITECTURE}/$${DebugOrRelease}
+    components_copy.path += $$OUT_DIR/$${PlatForm}/$${ARCHITECTURE}
 
-#    # 配置COPIES
-#    COPIES += components_copy
-#    }
+    # 配置COPIES
+    COPIES += components_copy
+    }
 }
 
 #插件
@@ -76,6 +76,7 @@ contains(DEFINES, Core_Plugin){
 contains(DEFINES, Tool_Plugin|Lib_PLUGIN_LIBRARY|Core_Plugin){
 
 } else {
+    unix: QMAKE_LFLAGS += -no-pie
     DESTDIR = $$OUT_DIR/$${PlatForm}/$${ARCHITECTURE}/$${DebugOrRelease}
     #message("Main")
 }
