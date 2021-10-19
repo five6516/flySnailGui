@@ -43,8 +43,8 @@ Bin/
 build*/
 
 #private
-flySnailGui/Plugin/AutoVue
+flySnailGui/Plugin/issue_check
 
 #temp
-*/Makefile
+*Makefile
 flySnailGui/lib/
