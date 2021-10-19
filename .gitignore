@@ -35,8 +35,16 @@
 *.app
 
 # QT
-*.pro.user
+*.pro.user*
+*.qmake.stash
 
 #out
 Bin/
 build*/
+
+#private
+flySnailGui/Plugin/AutoVue
+
+#temp
+*/Makefile
+flySnailGui/lib/
