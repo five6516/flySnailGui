@@ -67,9 +67,9 @@ int main(int argc, char *argv[])
     /* 加载核心库 */
     QString coreFile = qApp->applicationDirPath() + "/Plugin/";
 
-#ifdef Q_OS_WIN
+#if (defined(Q_OS_WIN))
     coreFile += "Core.dll";
-#elif Q_OS_LINUX
+#elif (defined(Q_OS_LINUX))
     coreFile += "libCore.so";
 #endif
 

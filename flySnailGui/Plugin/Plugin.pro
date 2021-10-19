@@ -4,4 +4,5 @@ CONFIG += ordered
 
 SUBDIRS += \
     Core \
-    Welcome
+    Welcome \
+    AutoVue

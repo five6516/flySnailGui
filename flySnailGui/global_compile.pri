@@ -12,6 +12,9 @@ unix:!macx{
         PlatForm = Linux
     }
     LIBS=-ldl
+    QMAKE_LFLAGS += -Wl,-z,origin \'-Wl,-rpath,"./"\'
+    QMAKE_CXXFLAGS += -fvisibility=hidden
+    QMAKE_LFLAGS += -Wl,-Bsymbolic
 }
 win32 {
     PlatForm = Windows
