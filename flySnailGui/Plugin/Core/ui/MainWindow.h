@@ -37,6 +37,7 @@ public:
     bool showLog(const QString& data);
     QString GetGlobalValue(const QString& key);
     void SetGlobalValue(const QString& key,const QString& value);
+    void SetStatus(const QString& text);
 
     int InitPluginugin();
     int InitMachineConfig();
@@ -51,7 +52,7 @@ private:
     /******* 导航栏 *******/
     QtMaterialAppBar* m_pQtMaterialAppBar;
 
-    /******* 工具栏按钮 *******/
+    /******* 状态栏 *******/
     QLabel* m_statusLabel;
 
     /******* 工具栏按钮 *******/

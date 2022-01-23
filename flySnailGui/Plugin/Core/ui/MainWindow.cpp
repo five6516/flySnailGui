@@ -57,7 +57,7 @@ void MainWindow::addTotalUI()
     addToolUI();
 
     m_pCPluginManage = new CPluginManage(qApp->applicationDirPath() + "/Plugin");
-    m_pWidgetsWindow = new WidgetsWindow(m_pCPluginManage);
+    m_pWidgetsWindow = new WidgetsWindow(m_pCPluginManage,this);
 
     QVBoxLayout *pTotalVBoxLayout = new QVBoxLayout();
     pTotalVBoxLayout->setSpacing(0);
@@ -76,7 +76,7 @@ void MainWindow::addTotalUI()
 
 void MainWindow::addStatusUI()
 {
-    m_statusLabel = new QLabel(pluginVersion());
+    m_statusLabel = new QLabel(QString::asprintf("%s %s",pluginName(), pluginVersion()));
     m_statusLabel->setAlignment(Qt::AlignRight);
     m_statusLabel->setMargin(5);
     m_statusLabel->setAttribute(Qt::WA_TranslucentBackground);
@@ -208,6 +208,11 @@ QString MainWindow::GetGlobalValue(const QString &key)
 
 void MainWindow::SetGlobalValue(const QString &key, const QString &value)
 {
+}
+
+void MainWindow::SetStatus(const QString &text)
+{
+    m_statusLabel->setText(text);
 }
 
 void MainWindow::buttonVersion(bool checked)

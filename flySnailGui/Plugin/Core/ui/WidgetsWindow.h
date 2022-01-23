@@ -8,6 +8,7 @@
 #include "qtmaterialtabs.h"
 #include "../CorePluginExport.h"
 
+class MainWindow;
 class QListWidgetItem;
 class QListWidget;
 class QStackedWidget;
@@ -19,7 +20,7 @@ class WidgetsWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit WidgetsWindow(CPluginManage* pCPluginManage,QWidget *parent = nullptr);
+    explicit WidgetsWindow(CPluginManage* pCPluginManage,MainWindow* pMainWindow, QWidget *parent = nullptr);
     ~WidgetsWindow();
 
     void loadSMVTConfig();
@@ -47,6 +48,7 @@ private:
     QTreeWidget* m_pQTreeWidget;//插件列表
 
     CPluginManage* m_pCPluginManage = nullptr;
+    MainWindow* m_pMainWindow = nullptr;
     std::vector<std::function<void(const QString& value)>> m_callBackTreeWidget;
     std::vector<std::function<void(const QString& value)>> m_callBackMenuWidget;
 public slots:

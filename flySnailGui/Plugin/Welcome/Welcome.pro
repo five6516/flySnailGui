@@ -2,7 +2,7 @@ QT += gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TEMPLATE = lib
-TARGET = Welcome
+TARGET = aWelcome
 DEFINES += QT_PLUGIN_LIBRARY
 DEFINES += Tool_Plugin
 CONFIG += c++11

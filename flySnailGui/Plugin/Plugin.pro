@@ -5,4 +5,5 @@ CONFIG += ordered
 SUBDIRS += \
     Core \
     Welcome \
-    AutoVue
+    AutoVue \
+    issue_check

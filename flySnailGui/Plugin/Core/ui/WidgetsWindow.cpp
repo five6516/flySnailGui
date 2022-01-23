@@ -7,10 +7,12 @@
 #include <QGridLayout>
 #include "Global.h"
 #include "Settings.h"
+#include "MainWindow.h"
 
-WidgetsWindow::WidgetsWindow(CPluginManage* pCPluginManage,QWidget *parent) :
+WidgetsWindow::WidgetsWindow(CPluginManage* pCPluginManage,MainWindow* pMainWindow, QWidget *parent) :
     QMainWindow(parent),
-    m_pCPluginManage(pCPluginManage)
+    m_pCPluginManage(pCPluginManage),
+    m_pMainWindow(pMainWindow)
 {
     addLogUI();
     addMenuUI();
@@ -144,7 +146,37 @@ void WidgetsWindow::loadSMVTPlugin()
 
         m_pQStackedWidget->addWidget(pWidget);//加入QStackedWidget
         plugin.second->setIndex(i++);
-        m_pQtMaterialTabs->addTab(plugin.second->pluginName());
+
+        if(g_PluginTorL == PluginTOP)
+        {
+            m_pQtMaterialTabs->addTab(plugin.second->pluginName());
+        }
+        else
+        {
+            QList<QTreeWidgetItem*> listTree = m_pQTreeWidget->findItems(QString(plugin.second->pluginContent()),Qt::MatchExactly);
+
+            if(listTree.size() == 0)//是否存在相同根节点名
+            {
+                QTreeWidgetItem *group=new QTreeWidgetItem(m_pQTreeWidget);
+                group->setText(0,plugin.second->pluginContent());
+                QTreeWidgetItem *item=new QTreeWidgetItem(group);
+                item->setText(0,plugin.second->pluginName());
+                m_pQTreeWidget->addTopLevelItem(group);
+            }
+            else
+            {
+                for(auto root : listTree)
+                {
+                    //ShowLogFunc(root->text(0));
+                    if(root->text(0) == QString(plugin.second->pluginContent()))//添加到现有根节点
+                    {
+                        QTreeWidgetItem *item=new QTreeWidgetItem(root);
+                        item->setText(0,plugin.second->pluginName());
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     m_pQTreeWidget->expandAll();//展开
@@ -259,5 +291,15 @@ void WidgetsWindow::treeItemPressed(QTreeWidgetItem *item, int column)
     for(auto i : m_callBackTreeWidget)
     {
         i(item->text(column));
+    }
+
+    //ShowLogFunc(QString::number(column));
+
+    //切换页面
+    if(m_pCPluginManage->m_mapPlugin.find(item->text(column).toStdString()) != m_pCPluginManage->m_mapPlugin.end())
+    {
+        //qDebug() << m_pCPluginManage->m_mapPlugin.find(item->text(column).toStdString())->second->getIndex();
+        m_pQStackedWidget->setCurrentIndex(m_pCPluginManage->m_mapPlugin.find(item->text(column).toStdString())->second->getIndex());
+        m_pMainWindow->SetStatus(item->text(column) + " " + m_pCPluginManage->m_mapPlugin.find(item->text(column).toStdString())->second->pluginVersion());
     }
 }
