@@ -1,12 +1,18 @@
 #ifndef QTMATERIALRIPPLEOVERLAY_H
 #define QTMATERIALRIPPLEOVERLAY_H
 
+#if defined(Lib_PLUGIN_LIBRARY)
+#  define Lib_PLUGIN_EXPORT Q_DECL_EXPORT
+#else
+#  define Lib_PLUGIN_EXPORT Q_DECL_IMPORT
+#endif
+
 #include <QPainterPath>
 #include "lib/qtmaterialoverlaywidget.h"
 
 class QtMaterialRipple;
 
-class QtMaterialRippleOverlay : public QtMaterialOverlayWidget
+class Lib_PLUGIN_EXPORT QtMaterialRippleOverlay : public QtMaterialOverlayWidget
 {
     Q_OBJECT
 

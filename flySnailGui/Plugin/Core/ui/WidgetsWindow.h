@@ -57,6 +57,7 @@ public slots:
     void buttonClearLog();
     bool showLogPlusSlot(QString data, int R,int G,int B,int Size);
     bool showLogSlot(QString data);
+    bool clearLogSlot();
     void ItemDoubleClick(QListWidgetItem* item);
 };
 

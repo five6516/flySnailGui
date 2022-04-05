@@ -3,6 +3,14 @@
 #include "Global.h"
 
 extern MainWindow* w;
+bool ClearLogFunc()
+{
+    if(w == nullptr)
+        return  false;
+
+    return w->clearLog();
+}
+
 bool ShowLogFunc(const QString& data)
 {
     if(w == nullptr)

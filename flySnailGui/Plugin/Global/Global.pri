@@ -7,13 +7,15 @@ HEADERS += \
 
 SOURCES += \
 
-LIBS+= -L$$PWD/../../lib/$${ARCHITECTURE}/$${DebugOrRelease} -lWidgetsLib -lJsonCppLib
+LIBS+= -L$$PWD/../../lib/$${ARCHITECTURE}/$${DebugOrRelease} -lWidgetsLib -lJsonCppLib -lQCustomPlot
 
 INCLUDEPATH+=$$PWD/../../Library/WidgetsLib \
              $$PWD/../../Library/JsonCppLib \
+             $$PWD/../../Library/QCustomPlot
 
 DEPENDPATH+=$$PWD/../../Library/WidgetsLib \
-             $$PWD/../../Library/JsonCppLib \
+            $$PWD/../../Library/JsonCppLib \
+            $$PWD/../../Library/QCustomPlot
 
 contains(DEFINES, Tool_Plugin){
     LIBS+= -L$$PWD/../../lib/$${ARCHITECTURE}/$${DebugOrRelease} -lCore -L$$DLLDESTDIR

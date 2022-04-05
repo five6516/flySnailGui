@@ -1,9 +1,15 @@
 #ifndef QTMATERIALOVERLAYWIDGET_H
 #define QTMATERIALOVERLAYWIDGET_H
 
+#if defined(Lib_PLUGIN_LIBRARY)
+#  define Lib_PLUGIN_EXPORT Q_DECL_EXPORT
+#else
+#  define Lib_PLUGIN_EXPORT Q_DECL_IMPORT
+#endif
+
 #include <QtWidgets/QWidget>
 
-class QtMaterialOverlayWidget : public QWidget
+class Lib_PLUGIN_EXPORT QtMaterialOverlayWidget : public QWidget
 {
     Q_OBJECT
 

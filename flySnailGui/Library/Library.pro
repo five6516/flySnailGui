@@ -1,6 +1,9 @@
 TEMPLATE = subdirs
 
+CONFIG += ordered
+
 SUBDIRS += \
     WidgetsLib \
-    JsonCppLib
+    JsonCppLib \
+    QCustomPlot
 

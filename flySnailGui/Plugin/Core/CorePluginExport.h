@@ -11,6 +11,7 @@
 #endif
 
 /* Func */
+QT_PLUGIN_EXPORT bool ClearLogFunc();
 QT_PLUGIN_EXPORT bool ShowLogFunc(const QString& data);
 QT_PLUGIN_EXPORT bool ShowLogPlusFunc(const QString& data, int R,int G,int B,int Size);
 QT_PLUGIN_EXPORT void reloadConfig();

@@ -35,6 +35,7 @@ public:
 
     bool showLogPlus(const QString& data, int R,int G,int B,int Size);
     bool showLog(const QString& data);
+    bool clearLog();
     QString GetGlobalValue(const QString& key);
     void SetGlobalValue(const QString& key,const QString& value);
     void SetStatus(const QString& text);

@@ -15,9 +15,8 @@ QT
 
 1.  xxxx
 
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+#### 使用的开源项目
+1. cpp-httplib
+2. QCustomPlot
+3. JsonCpp
+4. qt-material-widgets

@@ -23,7 +23,7 @@ public:
 
     std::map<std::string,CPluginSpec*> m_mapPlugin;//插件管理类
     QString m_strPluginDir;
-    QString m_strSettingFile="/Config/Plugin.ini";
+    QString m_strSettingFile="/config/Plugin.ini";
 private:
     ManageForm* pManageForm;
 

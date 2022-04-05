@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     installEventFilter(this);
 
-    buttonMax(true);
+    //buttonMax(true);
 }
 
 void MainWindow::addTotalUI()
@@ -196,6 +196,12 @@ bool MainWindow::showLogPlus(const QString& data, int R,int G,int B,int Size)
 bool MainWindow::showLog(const QString& data)
 {
     QMetaObject::invokeMethod(m_pWidgetsWindow,"showLogSlot",Qt :: AutoConnection,Q_ARG(QString,data));
+    return true;
+}
+
+bool MainWindow::clearLog()
+{
+    QMetaObject::invokeMethod(m_pWidgetsWindow,"clearLogSlot",Qt :: AutoConnection);
     return true;
 }
 

@@ -37,6 +37,7 @@ WidgetsWindow::~WidgetsWindow()
 void WidgetsWindow::addWidgetsUI()
 {
     m_pQStackedWidget = new QStackedWidget();
+    m_pQStackedWidget->setStyleSheet("margin: 0; padding: 0");
 }
 
 void WidgetsWindow::addMenuUI()
@@ -103,8 +104,6 @@ void WidgetsWindow::addTreeListUI()
     connect(m_pQTreeWidget,SIGNAL(itemPressed(QTreeWidgetItem *,int)),this,SLOT(treeItemPressed(QTreeWidgetItem*,int)));
 
     m_pDockTreeList = new QDockWidget(this);
-    if(!g_ShowTreeList)
-        m_pDockTreeList->setVisible(false);
     m_pDockTreeList->setAllowedAreas(Qt::AllDockWidgetAreas);
     m_pDockTreeList->setWidget(m_pQTreeWidget);
     m_pDockTreeList->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
@@ -114,6 +113,9 @@ void WidgetsWindow::addTreeListUI()
     QWidget* lEmptyWidget = new QWidget();
     m_pDockTreeList->setTitleBarWidget(lEmptyWidget);
     delete lTitleBar;
+
+    if(!g_ShowTreeList)
+        m_pQTreeWidget->hide();
 }
 
 
@@ -254,6 +256,12 @@ bool WidgetsWindow::showLogSlot(QString data)
     m_pQListWidget->insertItem(m_pQListWidget->count(), listItem);
     m_pQListWidget->scrollToBottom();
 
+    return true;
+}
+
+bool WidgetsWindow::clearLogSlot()
+{
+    buttonClearLog();
     return true;
 }
 

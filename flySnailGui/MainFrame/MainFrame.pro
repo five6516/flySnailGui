@@ -30,6 +30,14 @@ SOURCES += \
 
 HEADERS += \
 
+LIBS+= -L$$PWD/../lib/$${ARCHITECTURE}/$${DebugOrRelease} -lJsonCppLib
+
+INCLUDEPATH+=\
+             $$PWD/../Library/JsonCppLib \
+
+DEPENDPATH+=\
+             $$PWD/../Library/JsonCppLib \
+
 #应用图标
 RC_ICONS = favicon.ico
 
@@ -38,6 +46,6 @@ RESOURCES += \
 
 # copy config
 CONFIG += file_copies
-config_copy.files += $$PWD/../Config/ui.ini
-config_copy.path += $$OUT_DIR/$${PlatForm}/$${ARCHITECTURE}/$${DebugOrRelease}/Config
+config_copy.files += $$PWD/../config/ui.ini
+config_copy.path += $$OUT_DIR/$${PlatForm}/$${ARCHITECTURE}/$${DebugOrRelease}/config
 COPIES += config_copy
